@@ -1,6 +1,6 @@
 Restructure and Improve Coq Reference Manual
 
-Drivers: Théo (and Jim?)
+Drivers: Jim, Matthieu, Théo
 
 # Summary
 
@@ -17,9 +17,9 @@ contribute code enhancements and improvements to Coq.
 
 We believe the documentation should be easily understood by users who
 have only a bachelor's degree in Computer Science or Mathematics.
-It should be possible to learn and master Coq by reading the reference
-manual.  On the other hand, the reference manual shouldn't try to
-be a tutorial or a textbook.
+Users who are learning Coq should be able to use the manual as a
+reference and exhaustive documentation without having to become expert
+first.
 
 Some of the more apparent issues with the current documentation are:
 -	**Poor organization.** For example, the current split between the
