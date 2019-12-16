@@ -131,8 +131,8 @@ code, what are the limitations, and how to contribute.
   * coqdoc
   * coq_makefile, Dune, making plugins
   * IDEs: coqide, proof-general, vscoq...
-  * continuous integration
-  * How to review a Coq formalization
+  * Continuous integration
+  * How to review a Coq formalization
   * ...
 
 # Process
@@ -153,12 +153,11 @@ considerations:
 -	**Conceptual dependencies.** The work may go more smoothly if
      documentation for more-basic parts of the system are done first.
 
-The working outline has been submitted as a Coq PR under the doc
-directory.  We'll use this outline to track the progress of the
-project and who's doing what.  As we begin working on each chapter
-and section, we'll begin by reviewing the current chapter in a PR
-to identify what changes are needed, followed shortly afterward by
-creating and reviewing a revised chapter or section outline.
+As we begin working on each chapter and section of the new outline,
+we'll begin by reviewing available material to identify what changes
+are needed, and what writing will be required.  We will leave
+placeholders asking for contributions for sections where significant
+writing is needed.
 
 This success of this project will depend on help from many others with
 writing and reviewing updated documentation.  There will also be many
@@ -167,6 +166,8 @@ help from those who are most knowledgeable.  In some cases we may pair
 a good writer with a subject expert to write or update some sections.
 We will also consider providing with copy editing assistance beyond
 what can reasonably be done as part of a review.
+
+## Related note on grammars in the manual
 
 We are currently in the process of updating all the syntax in the
 document to make it match the code.  Some of the syntax was very
