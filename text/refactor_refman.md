@@ -19,7 +19,9 @@ We believe the documentation should be easily understood by users who
 have only a bachelor's degree in Computer Science or Mathematics.
 Users who are learning Coq should be able to use the manual as a
 reference and exhaustive documentation without having to become expert
-first.
+first. Existing online ressources should be enough to learn Coq, and
+the reference manual should be a good complement to one of the
+standard tutorials.
 
 Some of the more apparent issues with the current documentation are:
 -	**Poor organization.** For example, the current split between the
@@ -35,19 +37,14 @@ Some of the more apparent issues with the current documentation are:
      scattered across multiple sections.
 -	**Hard to locate concepts in the document.** For example, there is
      no subject index where the reader could look up unification.  The
-     HTML search box is not very helpful. (You can't see the
-     matching text for each search result without clicking on the
-     link.  Clicking on the link takes you to the top of the section
-     rather than to the matching text.)
+     HTML search box is not very helpful. (This is something that will
+     need to be improved independently of the refactoring of the manual.)
 -	**Lack of task-oriented guidance.** For example, there are more
      than 100 tactics.  What are the basic tactics that every user
-     should know?  Which ones are no longer preferred?  What are the
-     merits of using traditional tactics versus SSR?  How do common
+     should know?  Which ones are no longer preferred?  How do common
      proof techniques and concepts map into Coq?  What's the best
      way to set up files for a large project or to work with libraries
      not in the Coq distribution?
--	**User-level and developer-level material are not well
-     distinguished.**
 -	**Style.** Inconsistency in the level of detail, assuming too much
      background, overly complex language (e.g. wording reminiscent of
      academic papers), unclear wording and non-idiomatic English.
@@ -65,9 +62,19 @@ Other areas for improvement include:
      are so long it's easy to lose context or wander into unrelated
      material.
 
-# Working Outline
+# New structure
 
-*The outline is subject to revision as the project proceeds.*
+## General idea
+
+Topics are gathered in a single place where they are explained in depth,
+starting with a high level view, with lots of examples, then a more
+exhaustive presentation aimed at the experts, to finish with theoretical
+and implementation considerations that hint at how to improve the actual
+code, what are the limitations, and how to contribute.
+
+## Table of contents
+
+*This outline is subject to revision as the project proceeds.*
 
 * Introduction / How to read this manual
 
@@ -116,6 +123,8 @@ Other areas for improvement include:
     * Eauto
     * Generalized rewriting
 
+* Standard library / package ecosystem
+
 * Developing
   * Structuring projects
   * Coq commands
@@ -123,6 +132,7 @@ Other areas for improvement include:
   * coq_makefile, Dune, making plugins
   * IDEs: coqide, proof-general, vscoq...
   * continuous integration
+  * How to review a Coq formalization
   * ...
 
 # Process
@@ -167,7 +177,11 @@ https://github.com/coq/coq/pull/10614, for example, updates the
 
 # Disadvantages
 
-
+Working on refactoring the manual incrementally will create
+intermediate states which can be more confusing than what we started
+with.  If we end up not having finalized the refactoring towards the
+end of a release cycle, we will need to make adjustments so that it
+still looks good.
 
 # Leftover thoughts:
 Make Sphinx menu work better (shouldn't scroll when the main panel
