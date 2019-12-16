@@ -67,8 +67,63 @@ Other areas for improvement include:
 
 # Working Outline
 
-See *\<link to PR>.* The outline is subject to revision as the project
-proceeds.
+*The outline is subject to revision as the project proceeds.*
+
+* Introduction / How to read this manual
+
+* Core calculus / Kernel
+  — Gallina without elaboration (a checker should ideally be able to do that).
+  * Summary / Highlights
+  * Terms
+  * Typing
+  * Universe Polymorphism
+  * SProp
+  * CoInductives
+  * Native Integers
+  * VM and native compute
+  * Module system
+  * Libraries (saving / loading)
+  * Extraction (?)
+
+* Gallina and elaboration, related vernacular commands
+  * Summary / Highlights
+  * Terms with holes
+  * Unification (*new*)
+  * Extended pattern-matching
+  * Notations
+  * Implicit Arguments
+  * Coercions
+  * Type Classes
+  * Canonical Structures
+  * Library management (scoping of defs, etc.)
+  * Other commands
+
+* Proof Languages
+  * Summary / Highlights
+  * Interactive model, proof handling
+    * Parallel proof processing
+  * Tactics
+  * SSR
+  * Other proof languages?
+  * Ltac
+  * Ltac2
+  * Other tactic languages
+    * Mtac2
+  * Decision procedures / general automation
+    * Omega / Micromega
+    * Ring
+    * Nsatz
+    * Eauto
+    * Generalized rewriting
+
+* Developing
+  * Structuring projects
+  * Coq commands
+  * coqdoc
+  * coq_makefile, Dune, making plugins
+  * IDEs: coqide, proof-general, vscoq...
+  * continuous integration
+  * ...
 
 # Process
 
