@@ -83,6 +83,7 @@ code, what are the limitations, and how to contribute.
   * Summary / Highlights
   * Terms
   * Typing
+  * Conversion
   * Universe Polymorphism
   * SProp
   * CoInductives
