@@ -1,4 +1,4 @@
-Restructure and Improve Coq Reference Manual
+Restructure and Improve the Coq Reference Manual
 
 Drivers: Jim, Matthieu, Théo
 
@@ -17,11 +17,10 @@ contribute code enhancements and improvements to Coq.
 
 We believe the documentation should be easily understood by users who
 have only a bachelor's degree in Computer Science or Mathematics.
-Users who are learning Coq should be able to use the manual as a
-reference and exhaustive documentation without having to become expert
-first. Existing online ressources should be enough to learn Coq, and
-the reference manual should be a good complement to one of the
-standard tutorials.
+Those who are learning Coq should be able to use the manual as an
+authoritative reference without becoming an expert first. The manual
+complements existing tutorials; tutorials are good for a first
+exposure to Coq while the manual covers all the details.
 
 Some of the more apparent issues with the current documentation are:
 -	**Poor organization.** For example, the current split between the
@@ -31,14 +30,16 @@ Some of the more apparent issues with the current documentation are:
      chapters, should be integrated with the material in the Gallina
      chapters as well.
 -	**Missing explanations of essential concepts.** For example,
-     there's no section that describes how Coq does unification,
-     nor is there a description of basic reductions such beta, delta,
-     iota and eta.  Some information is partially present but
-     scattered across multiple sections.
+     there's no section that describes how Coq does unification, and
+     the typing and conversion rules are not really accessible because
+     only presented in the CIC chapter.  Sometimes, information is
+     partially present but scattered across multiple sections.
 -	**Hard to locate concepts in the document.** For example, there is
      no subject index where the reader could look up unification.  The
-     HTML search box is not very helpful. (This is something that will
-     need to be improved independently of the refactoring of the manual.)
+     HTML search box is not very helpful. (You can't see the
+     matching text for each search result without clicking on the
+     link.  Clicking on the link takes you to the top of the section
+     rather than to the matching text.)
 -	**Lack of task-oriented guidance.** For example, there are more
      than 100 tactics.  What are the basic tactics that every user
      should know?  Which ones are no longer preferred?  How do common
@@ -72,69 +73,53 @@ exhaustive presentation aimed at the experts, to finish with theoretical
 and implementation considerations that hint at how to improve the actual
 code, what are the limitations, and how to contribute.
 
-## Table of contents
+## Outline
 
-*This outline is subject to revision as the project proceeds.*
+The new top-level outline is presented in PR
+[coq/coq#11601](https://github.com/coq/coq/pull/11601).
+At the time of writing, it looks like this:
 
-* Introduction / How to read this manual
+- Introduction and contents
 
-* Core calculus / Kernel
-  — Gallina without elaboration (a checker should ideally be able to do that).
-  * Summary / Highlights
-  * Terms
-  * Typing
-  * Conversion
-  * Universe Polymorphism
-  * SProp
-  * CoInductives
-  * Native Integers
-  * VM and native compute
-  * Module system
-  * Libraries (saving / loading)
-  * Extraction (?)
+- Specification language
 
-* Gallina and elaboration, related vernacular commands
-  * Summary / Highlights
-  * Terms with holes
-  * Unification (*new*)
-  * Extended pattern-matching
-  * Notations
-  * Implicit Arguments
-  * Coercions
-  * Type Classes
-  * Canonical Structures
-  * Library management (scoping of defs, etc.)
-  * Other commands
+  - Core language
+  - Language extensions
 
-* Proof Languages
-  * Summary / Highlights
-  * Interactive model, proof handling
-    * Parallel proof processing
-  * Tactics
-  * SSR
-  * Other proof languages?
-  * Ltac
-  * Ltac2
-  * Other tactic languages
-    * Mtac2
-  * Decision procedures / general automation
-    * Omega / Micromega
-    * Ring
-    * Nsatz
-    * Eauto
-    * Generalized rewriting
+- Proofs
 
-* Standard library / package ecosystem
+  - Writing proofs
+  - Built-in decision procedures and programmable tactics
+  - Creating new tactics
 
-* Developing
-  * Structuring projects
-  * Coq commands
-  * coqdoc
-  * coq_makefile, Dune, making plugins
-  * IDEs: coqide, proof-general, vscoq...
-  * Continuous integration
-  * How to review a Coq formalization
-  * ...
+- Using Coq
+
+  - Libraries and plugins
+  - Command-line and graphical tools
+
+- Appendix
+
+  - History and recent changes
+  - Indexes
+  - Bibliography
+
+The "Using Coq" part is expected to gain one or two new chapters about
+project management / proof engineering (including how to review a Coq
+formalization).
+
+The "Core language" chapter corresponds to the language of the kernel
+(no elaboration) while the "Language extensions" chapter describes the
+elaboration process and what user gain with it (notations, implicits,
+type classes, canonical structures, unification, etc.).
+
+Each of these new chapters will be split on multiple pages on specific
+topics such as the one mentioned above for the "Language extensions"
+chapter, or such as "Terms", "Typing", "Conversion", "Inductive
+types", "Modules", etc. for the "Core language" chapter.
+
+The CIC chapter disappears and its content is spread out in the
+corresponding sections, next to more practice-oriented and
+example-based documentation.
 
 # Process
 
@@ -156,37 +141,66 @@ considerations:
 
 As we begin working on each chapter and section of the new outline,
 we'll begin by reviewing available material to identify what changes
-are needed, and what writing will be required.  We will leave
-placeholders asking for contributions for sections where significant
-writing is needed.
+are needed, and what writing will be required.
 
 This success of this project will depend on help from many others with
 writing and reviewing updated documentation.  There will also be many
 technical details to get right and questions to answer that will need
 help from those who are most knowledgeable.  In some cases we may pair
 a good writer with a subject expert to write or update some sections.
-We will also consider providing with copy editing assistance beyond
-what can reasonably be done as part of a review.
+We will also consider providing copy editing assistance beyond what
+can reasonably be done as part of a review.
 
-## Related note on grammars in the manual
+## Concrete first steps
+
+### On-going improvement of grammars in the manual
 
 We are currently in the process of updating all the syntax in the
 document to make it match the code.  Some of the syntax was very
-inaccurate.  We're doing this using a semi-automated tool to do
-this (see https://github.com/coq/coq/pull/9884).
-https://github.com/coq/coq/pull/10614, for example, updates the
-"Terms" section of the Gallina chapter.
+inaccurate.  We're doing this using a semi-automated tool to do this
+(see [coq/coq#9884](https://github.com/coq/coq/pull/9884)).  For
+instance, [coq/coq#10614](https://github.com/coq/coq/pull/10614)
+updated the "Terms" section of the Gallina chapter and
+[coq/coq#11423](https://github.com/coq/coq/pull/11423) the
+"Vernacular" section.
+
+### Adopting the new top-level outline by moving chapters around
+
+PR [coq/coq#11601](https://github.com/coq/coq/pull/11601) adopts the
+new top-level outline presented above by simply moving around existing
+chapters.  This means that some stuff is not in the right place yet
+(some sections of the "Gallina extensions" chapter belong to the new
+"Core language" chapter rather than the "Language extensions" one),
+but this is already a big step forward (kills the "Addendum" part).
+
+### Prepare splitting the chapters by splitting the files
+
+Some chapters like the Gallina chapter, the "Gallina extensions"
+chapter, the Tactics chapter, the Utilities chapter, will need to be
+split into multiple smaller pages.  In order to prepare for this, and
+to minimize the chances of merge conflicts, we will start by splitting
+out some sections to their own files.  By including these files in the
+place where the content was taken out (thanks to the `.. include::`
+Sphinx directive), this will be a non-user-visible change that it will
+be possible to backport.
+
+We will do such file splitting for parts that are not currently
+changed by any active PR.  Then, if a PR wants to change the content
+of these sections after they were split out to their own file, there
+will be less chances that it conflicts with the on-going refactoring.
+
+### Parallelize the work on distinct sections
+
+Once the file splitting is done and the revised grammars have been
+introduced, it should be possible to parallelize the work on reworking
+/ rewording each section.
 
 # Disadvantages
 
-Working on refactoring the manual incrementally will create
-intermediate states which can be more confusing than what we started
-with.  If we end up not having finalized the refactoring towards the
-end of a release cycle, we will need to make adjustments so that it
-still looks good.
-
-# Leftover thoughts:
-Make Sphinx menu work better (shouldn't scroll when the main panel
-scrolls)?
-
-Create a style guide?
+The strategy that we are adopting of merging successive PRs into
+master means that sometimes, there will be intermediate steps that are
+not completely satisfactory (such as when a concept is not yet in the
+place where it really belongs).  Nonetheless, we are starting from a
+manual in very bad shape, so even the intermediate steps will most
+often represent strict improvements, and we will strive so that it is
+the case as often as possible.
