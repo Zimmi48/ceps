@@ -110,7 +110,11 @@ formalization).
 The "Core language" chapter corresponds to the language of the kernel
 (no elaboration) while the "Language extensions" chapter describes the
 elaboration process and what user gain with it (notations, implicits,
-type classes, canonical structures, unification, etc.).
+type classes, canonical structures, unification, etc.).  For this
+chapter, we will provide concrete examples that do not use any of the
+language extensions provided by extraction.  To ensure this, we can
+rely on a specific flag such as the one being developed in
+[coq/coq#11646](https://github.com/coq/coq/pull/11646).
 
 Each of these new chapters will be split on multiple pages on specific
 topics such as the one mentioned above for the "Language extensions"
