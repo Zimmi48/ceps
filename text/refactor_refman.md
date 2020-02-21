@@ -32,8 +32,9 @@ Some of the more apparent issues with the current documentation are:
 -	**Missing explanations of essential concepts.** For example,
      there's no section that describes how Coq does unification, and
      the typing and conversion rules are not really accessible because
-     only presented in the CIC chapter.  Sometimes, information is
-     partially present but scattered across multiple sections.
+     they are only presented in the CIC chapter.  Sometimes,
+     information is partially present but scattered across multiple
+     sections.
 -	**Hard to locate concepts in the document.** For example, there is
      no subject index where the reader could look up unification.  The
      HTML search box is not very helpful. (You can't see the
@@ -103,27 +104,26 @@ At the time of writing, it looks like this:
   - Indexes
   - Bibliography
 
-The "Using Coq" part is expected to gain one or two new chapters about
-project management / proof engineering (including how to review a Coq
-formalization).
+We expect to add one or two new chapters about project management /
+proof engineering (including how to review a Coq formalization) in the
+part entitled "Using Coq".
 
 The "Core language" chapter corresponds to the language of the kernel
 (no elaboration) while the "Language extensions" chapter describes the
-elaboration process and what user gain with it (notations, implicits,
+elaboration process and what users gain from it (notations, implicits,
 type classes, canonical structures, unification, etc.).  For this
 chapter, we will provide concrete examples that do not use any of the
-language extensions provided by extraction.  To ensure this, we can
+language extensions provided by elaboration.  To ensure this, we can
 rely on a specific flag such as the one being developed in
 [coq/coq#11646](https://github.com/coq/coq/pull/11646).
 
-Each of these new chapters will be split on multiple pages on specific
-topics such as the one mentioned above for the "Language extensions"
-chapter, or such as "Terms", "Typing", "Conversion", "Inductive
-types", "Modules", etc. for the "Core language" chapter.
+Each of these new chapters will be split into multiple pages on
+specific topics such as the one mentioned above for the "Language
+extensions" chapter, or such as "Terms", "Typing", "Conversion",
+"Inductive types", "Modules", etc. for the "Core language" chapter.
 
-The CIC chapter disappears and its content is spread out in the
-corresponding sections, next to more practice-oriented and
-example-based documentation.
+The CIC chapter disappears and its content is spread among related
+sections, next to more task-oriented and example-based documentation.
 
 # Process
 
@@ -145,7 +145,10 @@ considerations:
 
 As we begin working on each chapter and section of the new outline,
 we'll begin by reviewing available material to identify what changes
-are needed, and what writing will be required.
+are needed, and what writing will be required.  We may use PRs to
+discuss / review the projected outline of some chapters / sections and
+preserve them in the source tree.  We may insert them as comments in
+the main documentation files or in separate files.
 
 This success of this project will depend on help from many others with
 writing and reviewing updated documentation.  There will also be many
@@ -175,7 +178,8 @@ new top-level outline presented above by simply moving around existing
 chapters.  This means that some stuff is not in the right place yet
 (some sections of the "Gallina extensions" chapter belong to the new
 "Core language" chapter rather than the "Language extensions" one),
-but this is already a big step forward (kills the "Addendum" part).
+but this is already a big step forward (e.g. getting rid of the
+"Addendum" part).
 
 ### Prepare splitting the chapters by splitting the files
 
@@ -185,8 +189,8 @@ split into multiple smaller pages.  In order to prepare for this, and
 to minimize the chances of merge conflicts, we will start by splitting
 out some sections to their own files.  By including these files in the
 place where the content was taken out (thanks to the `.. include::`
-Sphinx directive), this will be a non-user-visible change that it will
-be possible to backport.
+Sphinx directive), these will be non-user-visible changes that can be
+backported.
 
 We will do such file splitting for parts that are not currently
 changed by any active PR.  Then, if a PR wants to change the content
@@ -205,6 +209,6 @@ The strategy that we are adopting of merging successive PRs into
 master means that sometimes, there will be intermediate steps that are
 not completely satisfactory (such as when a concept is not yet in the
 place where it really belongs).  Nonetheless, we are starting from a
-manual in very bad shape, so even the intermediate steps will most
-often represent strict improvements, and we will strive so that it is
-the case as often as possible.
+manual in very bad shape, so even the intermediate steps will
+generally be net improvements. We will strive to do so as much as
+possible.
