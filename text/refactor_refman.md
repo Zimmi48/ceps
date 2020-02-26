@@ -150,6 +150,22 @@ discuss / review the projected outline of some chapters / sections and
 preserve them in the source tree.  We may insert them as comments in
 the main documentation files or in separate files.
 
+As an example, here is the rough sketch of the first chapter (Core
+language) of the refactored reference manual:
+
+- Terms
+- Typing
+- Conversion (including efficient reduction machines)
+- Non-recursive variants and records (including primitive projections)
+- Inductive types and recursive functions
+- Co-inductive types and co-recursive functions
+- Sorts (including SProp)
+- Universes (including template polymorphism and full universe
+  polymorphism)
+- Native integers, floats, etc.
+- Sections
+- Modules
+
 This success of this project will depend on help from many others with
 writing and reviewing updated documentation.  There will also be many
 technical details to get right and questions to answer that will need
